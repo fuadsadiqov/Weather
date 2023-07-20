@@ -20,10 +20,31 @@ export class CityComponent {
       .subscribe(res => {
         this.countryWeather = res
         console.log(res)
+        this.convertUnixToTimeSunrise(this.countryWeather.sys.sunrise)
+        this.convertUnixToTimeSunset(this.countryWeather.sys.sunset)
+        this.countryWeather.main.temp -= 273.15
+        })
       })
-    })
   }
   navigateToCity(cityId: string){
     this.router.navigateByUrl('city/' + cityId)
+  }
+  convertUnixToTimeSunrise(unix: any){
+    let unix_timestamp = unix;
+    let date = new Date(unix_timestamp * 1000);
+    let hours = date.getHours();
+    let minutes = "0" + date.getMinutes();
+    let seconds = "0" + date.getSeconds();
+    let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    this.countryWeather.sys.sunrise = formattedTime;
+  }
+  convertUnixToTimeSunset(unix: any){
+    let unix_timestamp = unix;
+    let date = new Date(unix_timestamp * 1000);
+    let hours = date.getHours();
+    let minutes = "0" + date.getMinutes();
+    let seconds = "0" + date.getSeconds();
+    let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    this.countryWeather.sys.sunset = formattedTime;
   }
 }
