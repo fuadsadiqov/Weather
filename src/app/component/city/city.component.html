@@ -1,6 +1,7 @@
 <div class="page">
-    <div class="header-top">
-        <a routerLink=""><img src="../../../assets/arrow-left.svg" alt=""> Geri Qayıt</a> 
+    <div class="container">
+        <div class="header-top">
+            <a routerLink=""><img src="../../../assets/arrow-left.svg" alt=""> Geri Qayıt</a> 
         <select #selectValue (change)="navigateToCity(selectValue.value)">
             <option *ngFor="let item of coutriesList" value="{{item[0]}}">
                 {{item[1].name}}
@@ -9,16 +10,19 @@
     </div>
 </div>
     <div class="weather-content">
-        {{country[1].name}} <br>
-        humidity: {{countryWeather.main.humidity}} <br>
-        pressure: {{countryWeather.main.pressure}} <br>
-        temp: {{countryWeather.main.temp}} <br>
-        temp_max: {{countryWeather.main.temp_max}} <br>
-        temp_min: {{countryWeather.main.temp_min}} <br>
-        
-        sunrise: {{countryWeather.sys.sunrise}} <br>
-        sunset: {{countryWeather.sys.sunset}} <br>
-        
-        description: {{countryWeather.weather.description}} <br>
+      <div class="container">
+          {{country[1].name}} <br>
+          humidity: {{countryWeather.main.humidity}} <br>
+          pressure: {{countryWeather.main.pressure}} <br>
+          temp: {{countryWeather.main.temp}} <br>
+          temp_max: {{countryWeather.main.temp_max}} <br>
+          temp_min: {{countryWeather.main.temp_min}} <br>
+          
+          sunrise: {{countryWeather.sys.sunrise}} <br>
+          sunset: {{countryWeather.sys.sunset}} <br>
+          
+          description: {{countryWeather.weather.description}} <br>
+        </div>
     </div>
+</div>
     
