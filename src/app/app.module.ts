@@ -10,6 +10,7 @@ import { MainPageComponent } from './component/main-page/main-page.component';
 import { CityComponent } from './component/city/city.component';
 import { ListPageComponent } from './component/list-page/list-page.component';
 import { MapPageComponent } from './component/map-page/map-page.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MapPageComponent } from './component/map-page/map-page.component';
     MainPageComponent,
     CityComponent,
     ListPageComponent,
-    MapPageComponent
+    MapPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

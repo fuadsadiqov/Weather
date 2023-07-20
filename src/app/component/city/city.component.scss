@@ -27,4 +27,33 @@
 .weather-content{
     background-color: #283042;
     height: calc(100vh - 4.5rem);
+    .weather-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .top-left,
+        .top-right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-left{
+            p{
+                font-size: 1.8rem;
+                padding-right: 0.3rem;
+            }
+        }
+        .top-right{
+            flex-direction: column;
+            align-items: flex-end;
+            p{
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+            span{
+                color: #AAA;
+                font-size: 0.85rem;
+            }
+        }
+    }
 }

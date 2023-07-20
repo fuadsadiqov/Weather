@@ -1,0 +1,5 @@
+<div class="page">
+    <p *ngIf="errorMessage" class="error">Düzgün API açarını daxil edin</p>
+    <input (change)="checkApi(inputValue.value)" #inputValue placeholder="API açarını daxil edin" type="text">
+    <p>Davam etmək üçün <a target="_blank" href="https://openweathermap.org/api">openweathermap.org</a> ünvanından aldığınız API açarını daxil edin</p>
+</div>

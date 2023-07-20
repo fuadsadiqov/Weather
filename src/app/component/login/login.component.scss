@@ -1,0 +1,37 @@
+.page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: #060b16;
+    padding: 0 2rem;
+    input{
+        max-width: 25rem;
+        height: 4rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        background-color: #111827;
+        border: 1px solid #FFF;
+        color: #AAA;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        &::placeholder{
+            font-size: 1.4rem;
+        }
+    }
+    p{
+        font-size: 0.9rem;
+        color: #AAA;
+        padding-top: 0.5rem;
+    }
+    .error{
+        color: #FFF;
+        background-color: #b10f0c;
+        padding: 1rem 2rem;
+        margin-bottom: 1rem;
+        border-radius: 0.4rem;
+    }
+}
