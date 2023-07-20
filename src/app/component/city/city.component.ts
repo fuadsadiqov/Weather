@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SimplesCountryMap } from '../../map'
 import { RestService } from 'src/app/services/rest.service';
 @Component({
@@ -12,7 +12,7 @@ export class CityComponent {
   public country: any
   public countryWeather: any
 
-  constructor(private route: ActivatedRoute, private restService: RestService){
+  constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
     this.route.params.subscribe(para => {
       const id = para['id']
       this.country = this.coutriesList.find(item => item[0] == id)      
@@ -22,5 +22,8 @@ export class CityComponent {
         console.log(res)
       })
     })
+  }
+  navigateToCity(cityId: string){
+    this.router.navigateByUrl('city/' + cityId)
   }
 }

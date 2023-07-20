@@ -1,0 +1,30 @@
+.header-top{
+    display: flex;
+    justify-content: space-between;
+    height: 2.5rem;
+    a{
+        display: flex;
+        align-items: center;
+        img{
+            width: 2rem;
+        }
+    }
+    select{
+        max-width: 10rem;
+        width: 100%;
+        border: 1px solid #AAA;
+        background-color: transparent;
+        color: #AAA;
+        border-radius: 0.2rem;
+        padding: 0 1rem;
+        -webkit-appearance: none;
+        option{
+            background-color: #283042;
+            color: #AAA;
+        }
+    }
+}
+.weather-content{
+    background-color: #283042;
+    height: calc(100vh - 4.5rem);
+}
