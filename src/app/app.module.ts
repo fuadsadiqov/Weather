@@ -11,6 +11,7 @@ import { CityComponent } from './component/city/city.component';
 import { ListPageComponent } from './component/list-page/list-page.component';
 import { MapPageComponent } from './component/map-page/map-page.component';
 import { LoginComponent } from './component/login/login.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './component/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

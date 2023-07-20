@@ -19,7 +19,7 @@ export class LoginComponent {
       }
       else{
         this.errorMessage = true
-      } 
+      }
     })
   }
 }
