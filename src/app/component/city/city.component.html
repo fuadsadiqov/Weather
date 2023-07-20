@@ -30,6 +30,10 @@
             </canvas>
             </div>
         </div>
+        <ng-container *ngFor="let item of dailyWeatherWrapper">
+            {{item.main.temp_max}}
+            {{item.main.temp_min}}
+        </ng-container>
         </div>
     </div>
 </div>

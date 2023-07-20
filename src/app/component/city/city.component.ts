@@ -17,19 +17,26 @@ export class CityComponent {
   public coutriesList = Object.entries(SimplesCountryMap.state_specific).map(item => item)
   public country: any
   public countryWeather: any
+  public currentIndex: number = 1
+  public dailyWeatherWrapper: Array<any> = []
 
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
+    this.getWeather()
+  }
+  getWeather(){
     this.route.params.subscribe(para => {
       const id = para['id']
       this.country = this.coutriesList.find(item => item[0] == id)      
       this.restService.getWeather(this.country[1].name)
       .subscribe((res: any) => {
-        
-        // res.list = res.list.map((item: any) => item.main.temp = Math.round(item.main.temp - 273.15))
-        
-
-        this.lineChartData.labels = res.list.map((item: any) => item.dt).slice(-8)
-        this.lineChartData.datasets[0].data = res.list.map((item: any) => item.main.temp).slice(-8)
+        console.log(res);        
+        res.list.filter((item: any) => {
+          if(item.dt_txt.substr(-8) == '00:00:00'){
+            this.dailyWeatherWrapper = [...this.dailyWeatherWrapper, item] 
+          }
+        })
+        this.lineChartData.labels = res.list.map((item: any) => item.dt).slice(res.list, this.currentIndex * 8)
+        this.lineChartData.datasets[0].data = res.list.map((item: any) => item.main.temp).slice(res.list, this.currentIndex * 8)
         this.countryWeather = res.list[0]
 
         this.countryWeather.main.temp = Math.round(this.countryWeather.main.temp - 273.15)
@@ -39,6 +46,8 @@ export class CityComponent {
   navigateToCity(cityId: string){
     this.router.navigateByUrl('city/' + cityId)
     this.chart?.update()
+    this.dailyWeatherWrapper = []
+    this.getWeather()
   }
 
   // Ng Chart
@@ -54,7 +63,7 @@ export class CityComponent {
         }
       }
     ],
-    labels: [ ]
+    labels: []
   };
 
   public lineChartOptions: ChartConfiguration['options'] = {
@@ -64,7 +73,7 @@ export class CityComponent {
       },
     },
     responsive: true,
-    aspectRatio: 4,
+    aspectRatio: 5,
     scales: {
       y: {
           display: false,
