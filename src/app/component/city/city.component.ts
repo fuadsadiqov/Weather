@@ -17,7 +17,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 export class CityComponent {
   public coutriesList = Object.entries(SimplesCountryMap.state_specific).map(item => item)
   public country: any
-  public countryWeather: any
+  public countryWeather: any = false
   public allDayWeather: Array<any> = []
   public fiveDayHourlyWeaher: Array<any> = []
   public math = Math
@@ -28,7 +28,8 @@ export class CityComponent {
   getWeather(){
     this.route.params.subscribe(para => {
       const id = para['id']
-      this.country = this.coutriesList.find(item => item[0] == id)      
+      this.country = this.coutriesList.find(item => item[0] == id)
+            
       this.restService.getWeather(this.country[1].name)
       .subscribe((res: any) => {
         this.fiveDayHourlyWeaher = res.list
@@ -54,6 +55,9 @@ export class CityComponent {
     console.log(this.fiveDayHourlyWeaher.map((item: any) => item.main.temp));
     this.chart?.update()
   }
+  public lineChartType: ChartType = 'line';
+
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
   public chartClicked({ event, active}: { event?: ChartEvent, active?: object[]}): void {
     console.log(event, active);    
   }
@@ -96,15 +100,9 @@ export class CityComponent {
           display: false,
         },
     },
-    
     plugins:
     {
       legend: { display: false },
     }
   };
-
-  public lineChartType: ChartType = 'line';
-
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
-
 }

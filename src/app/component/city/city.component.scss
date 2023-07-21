@@ -26,7 +26,7 @@
 }
 .weather-content{
     background-color: #283042;
-    height: calc(100vh - 4.5rem);
+    height: calc(100vh - 2.5rem);
     .weather-top{
         display: flex;
         justify-content: space-between;
@@ -66,12 +66,18 @@
     .five-day-forecast-wrapper{
         padding: 1rem 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         .item{
+            cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 0.2rem 2rem 0.4rem 2rem;    
+            border-radius: 1rem;
+            &:hover{
+                background-color: rgba($color: #AAA, $alpha: 0.2);
+            }
         }
     }
 }
