@@ -2,38 +2,47 @@
     <div class="container">
         <div class="header-top">
             <a routerLink="/cities"><img src="../../../assets/arrow-left.svg" alt=""> Geri Qayıt</a> 
-        <select #selectValue (change)="navigateToCity(selectValue.value)">
-            <option *ngFor="let item of coutriesList" value="{{item[0]}}">
-                {{item[1].name}}
-            </option>
-        </select>
+            <select #selectedCountry (change)="navigateToCity(selectedCountry.value)">
+                <option *ngFor="let item of coutriesList" value="{{item[0]}}">
+                    {{item[1].name}}
+                </option>
+            </select>
+        </div>
     </div>
-</div>
     <div class="weather-content">
       <div class="container">
         <div *ngIf="countryWeather">
             <div class="weather-top">
                 <div class="top-left">
-                    <img src="https://openweathermap.org/img/wn/{{countryWeather.weather[0].icon}}@2x.png" alt="">
-                    <p>{{countryWeather.main.temp}}</p> <sup>°C</sup>
+                        <div style="display: flex; align-items: center;">
+                            <img src="https://openweathermap.org/img/wn/{{countryWeather.weather[0].icon}}@2x.png" alt="">
+                            <p>{{math.round(countryWeather.main.temp - 273.15)}} <sup>°C</sup></p>
+                        </div>
+                    <span>{{countryWeather.weather[0].main}}</span>
                 </div>
                 <div class="top-right">
                     <p>{{country[1].name}}</p>
-                    {{countryWeather.dt_txt}} <br>
+                    <span>{{countryWeather.dt_txt}}</span>
                 </div>
             </div>
             <div class="chart-box">
                 <canvas baseChart class="chart"
                 [data]="lineChartData"
                 [options]="lineChartOptions"
+                (chartClick)="chartClicked($event)"
                 [type]="lineChartType">
             </canvas>
             </div>
         </div>
-        <ng-container *ngFor="let item of dailyWeatherWrapper">
-            {{item.main.temp_max}}
-            {{item.main.temp_min}}
-        </ng-container>
+        <div class="five-day-forecast-wrapper">
+            <ng-container *ngFor="let item of allDayWeather">
+                <div class="item" (click)="changeTime(item.dt_txt)">
+                    <img src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="">
+                    <span>{{math.round(item.main.temp - 273.15)}} °C</span>
+                    <span>{{item.dt_txt.slice(6, 11)}}</span>
+                </div>
+            </ng-container>
         </div>
+        </div> 
     </div>
 </div>

@@ -38,9 +38,13 @@
             justify-content: center;
         }
         .top-left{
+            flex-direction: column;
             p{
                 font-size: 1.8rem;
                 padding-right: 0.3rem;
+            }
+            span{
+                color: #AAA;
             }
         }
         .top-right{
@@ -57,6 +61,17 @@
         }
     }
     .chart-box{
-        padding-top: 5rem;
+        padding-top: 4rem;
+    }
+    .five-day-forecast-wrapper{
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        .item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
