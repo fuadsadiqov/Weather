@@ -2,11 +2,13 @@
     <div class="container header-top-container">
         <div class="header-top">
             <a routerLink="/cities"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
-            <div>
-                <input type="text" (keyup)="filterCountry()" [(ngModel)]="filteredInput">
-                <div *ngIf="filteredInput.length != 0" class="search-result">
+            <div class="search-box">
+                <input type="text" (keyup)="filterCountry()" #search [(ngModel)]="filteredInput">
+                <div [class.active]="filteredInput.length != 0" class="search-result">
                     <ng-container *ngFor="let item of filteredCounties">
-                        {{item[1].name}} <br>
+                        <a routerLink="/city/{{item[0]}}" class="item">
+                            {{item[1].name}}
+                        </a>
                     </ng-container>
                 </div>
             </div>

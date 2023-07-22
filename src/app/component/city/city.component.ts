@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SimplesCountryMap } from '../../map'
 import { RestService } from 'src/app/services/rest.service';
@@ -10,7 +10,7 @@ import { RestService } from 'src/app/services/rest.service';
 })
 export class CityComponent {
   public coutriesList = Object.entries(SimplesCountryMap.state_specific).map(item => item)
-  public country: any
+  public country: any = []
   public countryWeather: any = false
   public allDayWeather: Array<any> = []
   public fiveDayHourlyWeaher: Array<any> = []
@@ -20,17 +20,16 @@ export class CityComponent {
   public filteredCounties: Array<any> = []
 
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
-    this.getWeather()
+    this.getWeather()    
   }
   filterCountry(){
     this.filteredCounties = this.coutriesList.filter(country => country[1].name.toLowerCase().includes(this.filteredInput.toLowerCase()))
-    console.log(this.filteredInput);
-    console.log(this.filteredCounties);
   }
   getWeather(){
     this.route.params.subscribe(para => {
       const id = para['id']
       this.country = this.coutriesList.find(item => item[0] == id)
+      this.filteredInput = this.country[1].name
             
       this.restService.getWeather(this.country[1].name)
       .subscribe((res: any) => {

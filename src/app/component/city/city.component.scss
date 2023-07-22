@@ -12,18 +12,35 @@
             width: 2rem;
         }
     }
-    select{
-        max-width: 10rem;
+    input{
+        max-width: 14rem;
+        height: 2rem;
         width: 100%;
         border: 1px solid #AAA;
         background-color: transparent;
         color: #AAA;
         border-radius: 0.2rem;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         -webkit-appearance: none;
-        option{
+    }
+    .search-result{
+        display: none;
+        position: relative;
+        max-height: 15rem;
+        overflow-y: auto;
+        box-shadow: 0px 10px 15px -3px rgba($color: #000, $alpha: 0.3);
+        background-color: #283042;
+        border-radius: 0 0 0.5rem 0.5rem;
+        .item{
+            padding: 0.5rem 1rem;
             background-color: #283042;
             color: #AAA;
+            &:hover{
+                background-color: #111827;
+            }
+        }
+        &.active{
+            display: block;
         }
     }
 }
@@ -34,7 +51,7 @@
         justify-content: space-between;
         align-items: center;
         .top-left,
-        .top-right{
+        .top-right{ 
             display: flex;
             align-items: center;
             justify-content: center;
