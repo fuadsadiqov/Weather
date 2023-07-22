@@ -1,3 +1,6 @@
+.header-top-container{
+    background-color: #111827;
+}
 .header-top{
     display: flex;
     justify-content: space-between;
@@ -26,7 +29,6 @@
 }
 .weather-content{
     background-color: #283042;
-    height: calc(100vh - 2.5rem);
     .weather-top{
         display: flex;
         justify-content: space-between;
@@ -45,6 +47,13 @@
             }
             span{
                 color: #AAA;
+            }
+            img{
+                width: 7.5rem;
+            }
+            .top-left-img{
+                display: flex; 
+                align-items: center;
             }
         }
         .top-right{
@@ -68,16 +77,51 @@
         display: flex;
         justify-content: space-around;
         .item{
-            cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0.2rem 2rem 0.4rem 2rem;    
+            padding: 0.2rem 3rem 0.4rem 3rem;    
             border-radius: 1rem;
+            cursor: pointer;
             &:hover{
                 background-color: rgba($color: #AAA, $alpha: 0.2);
             }
+            img{
+                width: 7.5rem;
+            }
         }
     }
+}
+.loading-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+    .toBack{
+        display: none;
+    }
+    .weather-content{
+        .weather-top{
+            flex-direction: column-reverse;
+            .top-left{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .five-day-forecast-wrapper{
+            .item{
+            padding: 0;    
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }   
+    .top-left-img{
+        display: block; 
+        }
 }

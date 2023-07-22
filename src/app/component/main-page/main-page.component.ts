@@ -10,12 +10,15 @@ import { RestService } from 'src/app/services/rest.service';
 export class MainPageComponent {
   public countriesList = Object.entries(SimplesCountryMap.state_specific).map(item => item)
   public filteredCountriesList: Array<any> = this.countriesList
+  public searchInput: string = ''
+
   constructor(){}
 
-  filterCountries(value: string){
-    this.filteredCountriesList = this.countriesList.filter(item => item[1].name.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
+  filterCountries(){
+    this.filteredCountriesList = this.countriesList.filter(item => item[1].name.toLocaleLowerCase().includes(this.searchInput.toLocaleLowerCase()))
   }
   resetFilter(){
     this.filteredCountriesList = this.countriesList
+    this.searchInput = ''
   }
 }

@@ -12,6 +12,7 @@ import { ListPageComponent } from './component/list-page/list-page.component';
 import { MapPageComponent } from './component/map-page/map-page.component';
 import { LoginComponent } from './component/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ChartComponent } from './component/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgChartsModule } from 'ng2-charts';
     CityComponent,
     ListPageComponent,
     MapPageComponent,
-    LoginComponent
+    LoginComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

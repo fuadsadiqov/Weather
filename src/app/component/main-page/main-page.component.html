@@ -3,7 +3,7 @@
         Azərbaycan - şəhərlərə görə hava proqnozu
     </h1>
     <div class="search-box">
-        <input type="text" (keyup)="filterCountries(inputValue.value)" #inputValue placeholder="Şəhər axtarın">
+        <input type="text" [(ngModel)]="searchInput" (keyup)="filterCountries()" placeholder="Şəhər axtarın">
     </div>
     <div *ngIf="filteredCountriesList.length != 0" class="wrapper">
         <div *ngFor="let item of filteredCountriesList; let i = index" [routerLink]="['/city/'] + item[0]" class="item">

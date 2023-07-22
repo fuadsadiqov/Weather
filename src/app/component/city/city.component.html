@@ -1,12 +1,15 @@
 <div class="page">
-    <div class="container">
+    <div class="container header-top-container">
         <div class="header-top">
-            <a routerLink="/cities"><img src="../../../assets/arrow-left.svg" alt=""> Geri Qayıt</a> 
-            <select #selectedCountry  (change)="navigateToCity(selectedCountry.value)">
-                <option *ngFor="let item of coutriesList" value="{{item[0]}}">
-                    {{item[1].name}}
-                </option>
-            </select>
+            <a routerLink="/cities"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
+            <div>
+                <input type="text" (keyup)="filterCountry()" [(ngModel)]="filteredInput">
+                <div *ngIf="filteredInput.length != 0" class="search-result">
+                    <ng-container *ngFor="let item of filteredCounties">
+                        {{item[1].name}} <br>
+                    </ng-container>
+                </div>
+            </div>
         </div>
     </div>
     <div class="weather-content">
@@ -14,7 +17,7 @@
         <div *ngIf="countryWeather">
             <div class="weather-top">
                 <div class="top-left">
-                        <div style="display: flex; align-items: center;">
+                        <div class="top-left-img">
                             <img src="https://openweathermap.org/img/wn/{{countryWeather.weather[0].icon}}@2x.png" alt="İcon">
                             <p>{{math.round(countryWeather.main.temp - 273.15)}} <sup>°C</sup></p>
                         </div>
@@ -23,15 +26,10 @@
                 <div class="top-right">
                     <p>{{country[1].name}}</p>
                     <span>{{countryWeather.dt_txt}}</span>
-                </div>
+                </div>  
             </div>
             <div class="chart-box">
-                <canvas baseChart class="chart"
-                [data]="lineChartData"
-                [options]="lineChartOptions"
-                (chartClick)="chartClicked($event)"
-                [type]="lineChartType">
-            </canvas>
+                <app-chart [wrapper]="chartDataAndLabels"></app-chart>
             </div>
             <div class="five-day-forecast-wrapper">
                 <ng-container *ngFor="let item of allDayWeather">
