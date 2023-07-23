@@ -13,6 +13,7 @@ import { MapPageComponent } from './component/map-page/map-page.component';
 import { LoginComponent } from './component/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './component/chart/chart.component';
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,9 @@ import { ChartComponent } from './component/chart/chart.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgChartsModule
+    NgChartsModule,
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'en-US' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

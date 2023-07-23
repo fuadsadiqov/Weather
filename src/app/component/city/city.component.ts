@@ -29,11 +29,16 @@ export class CityComponent {
     this.inputClicked = event.composedPath().includes(this.searchInput.nativeElement);
     
   }
+
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
     this.getWeather()
     if(!localStorage.getItem('apiKey')){
       this.router.navigateByUrl('')
-    }    
+    }
+  }
+  getDayName(dateStr: string, locale: string){
+    var date = new Date(dateStr);
+    return date.toLocaleDateString(locale, { weekday: 'long' });          
   }
   filterCountry(){
     this.filteredCounties = this.coutriesList.filter(country => country[1].name.toLowerCase().includes(this.filteredInput.toLowerCase()))

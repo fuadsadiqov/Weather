@@ -77,4 +77,4 @@ export class ChartComponent implements OnChanges{
       }
     },
   };
-}
+} 

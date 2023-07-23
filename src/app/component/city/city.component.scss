@@ -62,6 +62,7 @@
         .top-left{
             flex-direction: column;
             p{
+                display: flex;
                 font-size: 1.8rem;
                 padding-right: 0.3rem;
             }
@@ -130,6 +131,9 @@
                 img{
                     width: 100%;
                 }
+            }
+            .top-right{
+                align-items: center;
             }
         }
         .five-day-forecast-wrapper{

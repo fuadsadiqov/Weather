@@ -38,7 +38,7 @@
                     <div class="item" (click)="changeTime(item.dt_txt)">
                         <img src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="İcon">
                         <span>{{math.round(item.main.temp - 273.15)}} °C</span>
-                        <span>{{item.dt_txt.slice(6, 11)}}</span>
+                        <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span>
                     </div>
                 </ng-container>
             </div>

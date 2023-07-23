@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
+
   public countriesList = Object.entries(SimplesCountryMap.state_specific).map(item => item)
   public filteredCountriesList: Array<any> = this.countriesList
   public searchInput: string = ''
