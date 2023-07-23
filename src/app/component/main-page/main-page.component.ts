@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SimplesCountryMap } from '../../map'
 import { RestService } from 'src/app/services/rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -12,7 +13,11 @@ export class MainPageComponent {
   public filteredCountriesList: Array<any> = this.countriesList
   public searchInput: string = ''
 
-  constructor(){}
+  constructor(private router: Router){
+    if(!localStorage.getItem('apiKey')){
+      this.router.navigateByUrl('')
+    }
+  }
 
   filterCountries(){
     this.filteredCountriesList = this.countriesList.filter(item => item[1].name.toLocaleLowerCase().includes(this.searchInput.toLocaleLowerCase()))

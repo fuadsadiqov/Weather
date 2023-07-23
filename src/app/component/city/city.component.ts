@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SimplesCountryMap } from '../../map'
 import { RestService } from 'src/app/services/rest.service';
@@ -18,9 +18,18 @@ export class CityComponent {
   public math = Math
   public filteredInput: string = ''
   public filteredCounties: Array<any> = []
+  public isInside: boolean = false
 
+  @ViewChild('searchResult',  {read: ElementRef}) element!: ElementRef<any>;   
+
+  @HostListener('document:click', ['$event']) onClick(event: MouseEvent) {
+    this.isInside = event.composedPath().includes(this.element.nativeElement);    
+  }
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
-    this.getWeather()    
+    this.getWeather()
+    if(!localStorage.getItem('apiKey')){
+      this.router.navigateByUrl('')
+    }    
   }
   filterCountry(){
     this.filteredCounties = this.coutriesList.filter(country => country[1].name.toLowerCase().includes(this.filteredInput.toLowerCase()))

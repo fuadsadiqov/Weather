@@ -15,6 +15,7 @@ export class LoginComponent {
     this.restService.checkApi(apiKey)
     .subscribe((res: any) => {
       if(res.cod == '200'){
+        this.restService.setApiKey(apiKey)
         this.router.navigate(['/', 'cities'])
       }
       else{

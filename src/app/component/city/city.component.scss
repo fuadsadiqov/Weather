@@ -42,6 +42,9 @@
         &.active{
             display: block;
         }
+        &.remove{
+            display: none;
+        }
     }
 }
 .weather-content{

@@ -4,7 +4,7 @@
             <a routerLink="/cities"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
             <div class="search-box">
                 <input type="text" (keyup)="filterCountry()" #search [(ngModel)]="filteredInput">
-                <div [class.active]="filteredInput.length != 0" class="search-result">
+                <div [class.active]="filteredInput.length != 0" [class.remove]="isInside" #searchResult class="search-result">
                     <ng-container *ngFor="let item of filteredCounties">
                         <a routerLink="/city/{{item[0]}}" class="item">
                             {{item[1].name}}
