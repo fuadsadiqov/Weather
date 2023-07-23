@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, ViewChild, OnChanges, SimpleChanges, Input, OnInit } from '@angular/core';
  
 // Ng Chart
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
@@ -25,7 +25,6 @@ export class ChartComponent implements OnChanges{
     this.lineChartData.labels = inputLineChartLabel
     this.chart?.update() 
   }
-  
   // Ng Chart
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
@@ -65,9 +64,17 @@ export class ChartComponent implements OnChanges{
           display: false,
         },
     },
-    plugins:
-    {
-      legend: { display: false },
-    }
+    plugins: {
+      legend: {
+        display: false
+      },
+      datalabels: {
+        color: 'white',
+        display: true,
+        font: {
+          weight: 'bold'
+        },
+      }
+    },
   };
 }

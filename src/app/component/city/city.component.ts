@@ -18,12 +18,16 @@ export class CityComponent {
   public math = Math
   public filteredInput: string = ''
   public filteredCounties: Array<any> = []
-  public isInside: boolean = false
+  public boxClosed: boolean | string = ''
+  public inputClicked: boolean | string = ''
 
-  @ViewChild('searchResult',  {read: ElementRef}) element!: ElementRef<any>;   
+  @ViewChild('searchResult',  {read: ElementRef}) searchResult!: ElementRef<any>;   
+  @ViewChild('search',  {read: ElementRef}) searchInput!: ElementRef<any>;   
 
   @HostListener('document:click', ['$event']) onClick(event: MouseEvent) {
-    this.isInside = event.composedPath().includes(this.element.nativeElement);    
+    this.boxClosed = event.composedPath().includes(this.searchResult.nativeElement);
+    this.inputClicked = event.composedPath().includes(this.searchInput.nativeElement);
+    
   }
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
     this.getWeather()
@@ -59,6 +63,5 @@ export class CityComponent {
     this.countryWeather = this.allDayWeather.find((item: any) => item.dt_txt == time)
     let lineChartArray = this.fiveDayHourlyWeaher.filter((item: any) => item.dt_txt.substr(8, 2) == time.substring(8, 10))    
     this.chartDataAndLabels = [lineChartArray.map((item: any) => Math.round(item.main.temp - 273.15)), lineChartArray.map((item: any) => item.dt_txt)] 
-    console.log(this.fiveDayHourlyWeaher.map((item: any) => item.main.temp));
   }
 }
