@@ -53,7 +53,7 @@ export class ChartComponent implements OnChanges{
       },
     },
     responsive: true,
-    aspectRatio: 5,
+    maintainAspectRatio: false,
     scales: {
       x:{
         ticks: {

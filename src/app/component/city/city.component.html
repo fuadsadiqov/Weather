@@ -42,7 +42,6 @@
             <div class="five-day-forecast-wrapper">
                 <ng-container *ngFor="let item of allDayWeather">
                     <div class="item" (click)="changeTime(item.dt_txt)">
-                        <p class="items-description">{{item.weather[0].description}}</p>
                         <img src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="İcon">
                         <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span>
                         <span>{{math.round(item.main.temp - 273.15)}} °C</span>
