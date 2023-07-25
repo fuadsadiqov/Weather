@@ -15,9 +15,9 @@ export class MainPageComponent {
   public searchInput: string = ''
 
   constructor(private router: Router){
-    if(!localStorage.getItem('apiKey')){
-      this.router.navigateByUrl('')
-    }
+    // if(!localStorage.getItem('apiKey')){
+    //   this.router.navigateByUrl('')
+    // }
   }
 
   filterCountries(){

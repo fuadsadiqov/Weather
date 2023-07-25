@@ -31,9 +31,9 @@ export class CityComponent {
   }
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
     this.getWeather()
-    if(!localStorage.getItem('apiKey')){
-      this.router.navigateByUrl('')
-    }
+    // if(!localStorage.getItem('apiKey')){
+    //   this.router.navigateByUrl('')
+    // }
     
   }
   getDayName(dateStr: string, locale: string){
