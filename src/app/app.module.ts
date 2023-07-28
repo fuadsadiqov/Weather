@@ -9,11 +9,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './component/main-page/main-page.component';
 import { CityComponent } from './component/city/city.component';
 import { ListPageComponent } from './component/list-page/list-page.component';
-import { MapPageComponent } from './component/map-page/map-page.component';
 import { LoginComponent } from './component/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './component/chart/chart.component';
 import { LOCALE_ID } from '@angular/core';
+import { MapPageComponent } from './component/map-page/map-page.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { LOCALE_ID } from '@angular/core';
     MainPageComponent,
     CityComponent,
     ListPageComponent,
-    MapPageComponent,
     LoginComponent,
-    ChartComponent
+    ChartComponent,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,

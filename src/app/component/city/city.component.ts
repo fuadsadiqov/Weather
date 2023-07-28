@@ -11,8 +11,8 @@ import { RestService } from 'src/app/services/rest.service';
 export class CityComponent {
   public coutriesList = Object.entries(SimplesCountryMap.state_specific).map(item => item)
   public country: any = []
-  public countryWeather: any = false
-  public allDayWeather: Array<any> = []
+  public todayWeather: any = false
+  public eightDayWeather: Array<any> = []
   public fiveDayHourlyWeaher: Array<any> = []
   public chartDataAndLabels: any
   public math = Math
@@ -31,14 +31,9 @@ export class CityComponent {
   }
   constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
     this.getWeather()
-    // if(!localStorage.getItem('apiKey')){
-    //   this.router.navigateByUrl('')
-    // }
-    
-  }
-  getDayName(dateStr: string, locale: string){
-    var date = new Date(dateStr);
-    return date.toLocaleDateString(locale, { weekday: 'long' });          
+    if(!localStorage.getItem('apiKey')){
+      this.router.navigateByUrl('')
+    } 
   }
   filterCountry(){
     this.filteredCounties = this.coutriesList.filter(country => country[1].name.toLowerCase().includes(this.filteredInput.toLowerCase()))
@@ -51,11 +46,11 @@ export class CityComponent {
       this.restService.getWeather(this.country[1].name)
       .subscribe((res: any) => {
         this.fiveDayHourlyWeaher = res.list
-        let lastEightDayData =  res.list.map((item: any) => Math.round(item.main.temp - 273.15)).slice(0, 8)
-        let lastEightDayLabel =  res.list.map((item: any) => item.dt_txt).slice(0, 8)
-        this.chartDataAndLabels = [lastEightDayData, lastEightDayLabel]
-        this.countryWeather = res.list[0]
-        this.allDayWeather = res.list.filter((item: any) => item.dt_txt.substr(-8) == '12:00:00')
+        let todayEightHoursDatas =  res.list.map((item: any) => Math.round(item.main.temp - 273.15)).slice(0, 8)
+        let todayEightHoursLabels =  res.list.map((item: any) => item.dt_txt).slice(0, 8)
+        this.chartDataAndLabels = [todayEightHoursDatas, todayEightHoursLabels]
+        this.todayWeather = res.list[0]
+        this.eightDayWeather = res.list.filter((item: any) => item.dt_txt.substr(-8) == '12:00:00')
         })
       })
   }
@@ -64,9 +59,8 @@ export class CityComponent {
     this.getWeather()
   }
   changeTime(time: string){
-    this.countryWeather = this.allDayWeather.find((item: any) => item.dt_txt == time)
-    this.countryWeatherIndex = this.allDayWeather.findIndex((item: any) => item.dt_txt == time)
-    console.log(this.countryWeatherIndex);
+    this.todayWeather = this.eightDayWeather.find((item: any) => item.dt_txt == time)
+    this.countryWeatherIndex = this.eightDayWeather.findIndex((item: any) => item.dt_txt == time)
     
     let lineChartArray = this.fiveDayHourlyWeaher.filter((item: any) => item.dt_txt.substr(8, 2) == time.substring(8, 10))    
     this.chartDataAndLabels = [lineChartArray.map((item: any) => Math.round(item.main.temp - 273.15)), lineChartArray.map((item: any) => item.dt_txt)] 

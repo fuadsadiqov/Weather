@@ -1,1 +1,13 @@
-<p>list-page works!</p>
+<div class="page">
+    <div class="search-box">
+        <input type="text" [(ngModel)]="searchInput" (keyup)="filterCountries()" placeholder="Şəhər axtarın">
+    </div>
+    <div *ngIf="filteredCountriesList.length != 0" class="wrapper">
+        <div *ngFor="let item of filteredCountriesList; let i = index" [routerLink]="['/city/'] + item[0]" class="item">
+                <p>{{i + 1}}</p> {{item[1].name}}
+        </div>
+    </div>
+    <div class="not-found" *ngIf="filteredCountriesList.length == 0">
+        Axtarışa aid nümunə tapılmadı. <span (click)="resetFilter()">Seçimi yeniləyin</span>
+    </div>
+</div>

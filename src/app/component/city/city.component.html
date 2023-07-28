@@ -16,14 +16,14 @@
     </div>
     <div class="weather-content">
       <div class="container">
-        <div *ngIf="countryWeather">
+        <div *ngIf="todayWeather">
             <div class="weather-top">
                 <div class="top-left">
                         <div class="top-left-img">
-                            <img src="https://openweathermap.org/img/wn/{{countryWeather.weather[0].icon}}@2x.png" alt="İcon">
-                            <p>{{math.round(countryWeather.main.temp - 273.15)}} <sup>°C</sup></p>
+                            <img src="https://openweathermap.org/img/wn/{{todayWeather.weather[0].icon}}@2x.png" alt="İcon">
+                            <p>{{math.round(todayWeather.main.temp - 273.15)}} <sup>°C</sup></p>
                         </div>
-                    <span>{{countryWeather.weather[0].description}}</span>
+                    <span>{{todayWeather.weather[0].description}}</span>
                     <div class="change-mod">
                         <a (click)="changeTemprature()">Tempratur</a>
                         <a (click)="changeFeels()">Hiss olunan</a>
@@ -33,14 +33,14 @@
                 </div>
                 <div class="top-right">
                     <p>{{country[1].name}}</p>
-                    <span>{{countryWeather.dt_txt}}</span>
+                    <span>{{todayWeather.dt_txt}}</span>
                 </div>  
             </div>
             <div class="chart-box">
                 <app-chart [wrapper]="chartDataAndLabels"></app-chart>
             </div>
             <div class="five-day-forecast-wrapper">
-                <ng-container *ngFor="let item of allDayWeather">
+                <ng-container *ngFor="let item of eightDayWeather">
                     <div class="item" (click)="changeTime(item.dt_txt)">
                         <img src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="İcon">
                         <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span>
@@ -49,7 +49,7 @@
                 </ng-container>
             </div>
         </div>
-        <div *ngIf="!countryWeather" class="loading-box">
+        <div *ngIf="!todayWeather" class="loading-box">
             <div class="loader">Loading...</div>
         </div>
         </div> 

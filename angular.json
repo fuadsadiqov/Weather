@@ -32,7 +32,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/mapdata.js",
+              "src/assets/countrymap.js",
+              "src/assets/hello.js"
+            ] 
           },
           "configurations": {
             "production": {
