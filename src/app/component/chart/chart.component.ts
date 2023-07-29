@@ -3,7 +3,6 @@ import { Component, ViewChild, OnChanges, SimpleChanges, Input, OnInit } from '@
 // Ng Chart
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-chart',
@@ -38,9 +37,6 @@ export class ChartComponent implements OnChanges{
         backgroundColor: '',
         borderColor: '',
         fill: 'origin',
-        datalabels: {
-          color: '#FFF'
-        }
       }
     ],
     labels: []
@@ -73,13 +69,6 @@ export class ChartComponent implements OnChanges{
       legend: {
         display: false
       },
-      datalabels: {
-        color: 'white',
-        display: true,
-        font: {
-          weight: 'bold'
-        },
-      }
     },
   };
 } 
