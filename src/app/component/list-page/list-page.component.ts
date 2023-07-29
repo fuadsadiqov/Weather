@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SimplesCountryMap } from '../../map'
-import { RestService } from 'src/app/services/rest.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,9 +14,9 @@ export class ListPageComponent {
   public searchInput: string = ''
 
   constructor(private router: Router){
-    if(!localStorage.getItem('apiKey')){
-      this.router.navigateByUrl('')
-    }
+    // if(!localStorage.getItem('apiKey')){
+    //   this.router.navigateByUrl('')
+    // }
   }
 
   filterCountries(){

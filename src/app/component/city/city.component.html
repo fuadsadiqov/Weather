@@ -1,7 +1,7 @@
 <div class="page">
     <div class="container header-top-container">
         <div class="header-top">
-            <a routerLink="/cities"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
+            <a routerLink="/cities/list"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
             <div class="search-box">
                 <input type="text" (keyup)="filterCountry()" #search [(ngModel)]="filteredInput">
                 <div [class.remove]="!inputClicked && !boxClosed" #searchResult class="search-result">
@@ -43,7 +43,8 @@
                 <ng-container *ngFor="let item of eightDayWeather">
                     <div class="item" (click)="changeTime(item.dt_txt)">
                         <img src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="İcon">
-                        <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span>
+                        <span>{{item.dt_txt.slice(6, 11)}}</span>
+                        <!-- <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span> -->
                         <span>{{math.round(item.main.temp - 273.15)}} °C</span>
                     </div>
                 </ng-container>

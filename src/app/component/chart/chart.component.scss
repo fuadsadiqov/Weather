@@ -1,0 +1,10 @@
+.chart{
+    width: 100%;
+    height: 250px;
+}
+@media (max-width: 768px) {
+    .chart{
+        width: 100%;
+        height: 110px;
+    }
+}

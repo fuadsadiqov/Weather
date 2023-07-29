@@ -386,11 +386,6 @@ export let SimplesCountryMap={
       }
     },
     locations: {
-      "0": {
-        lat: "40.395278",
-        lng: "49.882222",
-        name: "Baku"
-      }
     },
     labels: {},
     legend: {

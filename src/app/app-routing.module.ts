@@ -9,11 +9,11 @@ import { MapPageComponent } from './component/map-page/map-page.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: MainPageComponent
   },
   {
     path: '*',
-    component: LoginComponent
+    component: MainPageComponent
   },
   {
     path: 'cities',

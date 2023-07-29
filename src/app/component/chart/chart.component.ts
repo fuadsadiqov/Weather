@@ -65,7 +65,7 @@ export class ChartComponent implements OnChanges{
         }
       },
       y: {
-          // beginAtZero: true,
+          beginAtZero: true,
           display: false,
         },
     },
