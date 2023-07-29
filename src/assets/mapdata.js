@@ -66,7 +66,7 @@ var simplemaps_countrymap_mapdata={
     images_directory: "default",
     fade_time: 0.1,
     link_text: "View Website",
-    popups: "on_click",
+    popups: "detect",
     state_image_url: "",
     state_image_position: "",
     location_image_url: ""
@@ -74,315 +74,315 @@ var simplemaps_countrymap_mapdata={
   state_specific: {
     AZE1676: {
       name: "Ağstafa",
-      description: '<a style="color: blue;" href="/city/AZE1676">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1676"
     },
     AZE1677: {
       name: "Daşkəsən",
-      description: '<a style="color: blue;" href="/city/AZE1677">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1677"
     },
     AZE1678: {
       name: "Gədəbəy",
-      description: '<a style="color: blue;" href="/city/AZE1678">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1678"
     },
     AZE1679: {
       name: "Gəncə",
-      description: '<a style="color: blue;" href="/city/AZE1679">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1679"
     },
     AZE1680: {
       name: "Xanlar",
-      description: '<a style="color: blue;" href="/city/AZE1680">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1680"
     },
     AZE1681: {
       name: "Goranboy",
-      description: '<a style="color: blue;" href="/city/AZE1681">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1681"
     },
     AZE1682: {
       name: "Kəlbəcər",
-      description: '<a style="color: blue;" href="/city/AZE1682">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1682"
     },
     AZE1683: {
       name: "Mingəçevir",
-      description: '<a style="color: blue;" href="/city/AZE1683">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1683"
     },
     AZE1684: {
       name: "Qazax",
-      description: '<a style="color: blue;" href="/city/AZE1684">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1684"
     },
     AZE1685: {
       name: "Şəmkir",
-      description: '<a style="color: blue;" href="/city/AZE1685">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1685"
     },
     AZE1686: {
       name: "Samux",
-      description: '<a style="color: blue;" href="/city/AZE1686">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1686"
     },
     AZE1687: {
       name: "Tovuz",
-      description: '<a style="color: blue;" href="/city/AZE1687">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1687"
     },
     AZE1688: {
       name: "Yevlakh Rayon",
-      description: '<a style="color: blue;" href="/city/AZE1688">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1688"
     },
     AZE1689: {
       name: "Bakı",
-      description: '<a style="color: blue;" href="/city/AZE1689">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1689"
     },
     AZE1690: {
       name: "Abşeron",
-      description: '<a style="color: blue;" href="/city/AZE1690">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1690"
     },
     AZE1691: {
       name: "Ağdam",
-      description: '<a style="color: blue;" href="/city/AZE1691">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1691"
     },
     AZE1692: {
       name: "Ağdaş",
-      description: '<a style="color: blue;" href="/city/AZE1692">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1692"
     },
     AZE1693: {
       name: "Ağsu",
-      description: '<a style="color: blue;" href="/city/AZE1693">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1693"
     },
     AZE1694: {
       name: "Hajigabul",
-      description: '<a style="color: blue;" href="/city/AZE1694">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1694"
     },
     AZE1695: {
       name: "Astara",
-      description: '<a style="color: blue;" href="/city/AZE1695">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1695"
     },
     AZE1696: {
       name: "Bərdə",
-      description: '<a style="color: blue;" href="/city/AZE1696">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1696"
     },
     AZE1697: {
       name: "Beyləqan",
-      description: '<a style="color: blue;" href="/city/AZE1697">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1697"
     },
     AZE1698: {
       name: "Biləsuvar",
-      description: '<a style="color: blue;" href="/city/AZE1698">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1698"
     },
     AZE1699: {
       name: "Cəbrayıl",
-      description: '<a style="color: blue;" href="/city/AZE1699">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1699"
     },
     AZE1700: {
       name: "Cəlilabad",
-      description: '<a style="color: blue;" href="/city/AZE1700">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1700"
     },
     AZE1701: {
       name: "Dəvəçi",
-      description: '<a style="color: blue;" href="/city/AZE1701">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1701"
     },
     AZE1702: {
       name: "Füzuli",
-      description: '<a style="color: blue;" href="/city/AZE1702">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1702"
     },
     AZE1703: {
       name: "Göyçay",
-      description: '<a style="color: blue;" href="/city/AZE1703">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1703"
     },
     AZE1704: {
       name: "İmişli",
-      description: '<a style="color: blue;" href="/city/AZE1704">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1704"
     },
     AZE1705: {
       name: "İsmayıllı",
-      description: '<a style="color: blue;" href="/city/AZE1705">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1705"
     },
     AZE1706: {
       name: "Kürdəmir",
-      description: '<a style="color: blue;" href="/city/AZE1706">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1706"
     },
     AZE1707: {
       name: "Lankaran",
-      description: '<a style="color: blue;" href="/city/AZE1707">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1707"
     },
     AZE1708: {
       name: "Masallı",
-      description: '<a style="color: blue;" href="/city/AZE1708">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1708"
     },
     AZE1709: {
       name: "Lerik",
-      description: '<a style="color: blue;" href="/city/AZE1709">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1709"
     },
     AZE1710: {
       name: "Neftçala",
-      description: '<a style="color: blue;" href="/city/AZE1710">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1710"
     },
     AZE1711: {
       name: "Qobustan",
-      description: '<a style="color: blue;" href="/city/AZE1711">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1711"
     },
     AZE1712: {
       name: "Siyəzən",
-      description: '<a style="color: blue;" href="/city/AZE1712">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1712"
     },
     AZE1713: {
       name: "Saatlı",
-      description: '<a style="color: blue;" href="/city/AZE1713">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1713"
     },
     AZE1714: {
       name: "Sabirabad",
-      description: '<a style="color: blue;" href="/city/AZE1714">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1714"
     },
     AZE1715: {
       name: "Salyan",
-      description: '<a style="color: blue;" href="/city/AZE1715">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1715"
     },
     AZE1716: {
       name: "Şamaxı",
-      description: '<a style="color: blue;" href="/city/AZE1716">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1716"
     },
     AZE1717: {
       name: "Sumqayıt",
-      description: '<a style="color: blue;" href="/city/AZE1717">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1717"
     },
     AZE1718: {
       name: "Ucar",
-      description: '<a style="color: blue;" href="/city/AZE1718">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1718"
     },
     AZE1719: {
       name: "Xizı",
-      description: '<a style="color: blue;" href="/city/AZE1719">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1719"
     },
     AZE1720: {
       name: "Yardımlı",
-      description: '<a style="color: blue;" href="/city/AZE1720">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1720"
     },
     AZE1721: {
       name: "Zərdab",
-      description: '<a style="color: blue;" href="/city/AZE1721">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1721"
     },
     AZE1722: {
       name: "Ağcabədi",
-      description: '<a style="color: blue;" href="/city/AZE1722">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1722"
     },
     AZE1723: {
       name: "Balakən",
-      description: '<a style="color: blue;" href="/city/AZE1723">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1723"
     },
     AZE1724: {
       name: "Qəbələ",
-      description: '<a style="color: blue;" href="/city/AZE1724">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1724"
     },
     AZE1725: {
       name: "Oğuz",
-      description: '<a style="color: blue;" href="/city/AZE1725">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1725"
     },
     AZE1726: {
       name: "Qax",
-      description: '<a style="color: blue;" href="/city/AZE1726">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1726"
     },
     AZE1727: {
       name: "Şəki",
-      description: '<a style="color: blue;" href="/city/AZE1727">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1727"
     },
     AZE1728: {
       name: "Quba",
-      description: '<a style="color: blue;" href="/city/AZE1728">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1728"
     },
     AZE1729: {
       name: "Qusar",
-      description: '<a style="color: blue;" href="/city/AZE1729">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1729"
     },
     AZE1730: {
       name: "Xaçmaz",
-      description: '<a style="color: blue;" href="/city/AZE1730">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1730"
     },
     AZE1731: {
       name: "Zaqatala",
-      description: '<a style="color: blue;" href="/city/AZE1731">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1731"
     },
     AZE1734: {
       name: "Xocavənd",
-      description: '<a style="color: blue;" href="/city/AZE1734">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1734"
     },
     AZE1735: {
       name: "Lankaran",
-      description: '<a style="color: blue;" href="/city/AZE1735">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1735"
     },
     AZE1736: {
       name: "Qubadli",
-      description: '<a style="color: blue;" href="/city/AZE1736">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1736"
     },
     AZE1737: {
       name: "Şuşa",
-      description: '<a style="color: blue;" href="/city/AZE1737">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1737"
     },
     AZE1738: {
       name: "Tərtər",
-      description: '<a style="color: blue;" href="/city/AZE1738">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1738"
     },
     AZE1739: {
       name: "Xocalı",
-      description: '<a style="color: blue;" href="/city/AZE1739">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1739"
     },
     AZE1740: {
       name: "Zəngilan",
-      description: '<a style="color: blue;" href="/city/AZE1740">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE1740"
     },
     AZE2415: {
       name: "Sədərək",
-      description: '<a style="color: blue;" href="/city/AZE2415">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2415"
     },
     AZE2418: {
       name: "Ordubad",
-      description: '<a style="color: blue;" href="/city/AZE2418">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2418"
     },
     AZE2419: {
       name: "Şərur",
-      description: '<a style="color: blue;" href="/city/AZE2419">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2419"
     },
     AZE2420: {
       name: "Babək",
-      description: '<a style="color: blue;" href="/city/AZE2420">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2420"
     },
     AZE2421: {
       name: "Culfa",
-      description: '<a style="color: blue;" href="/city/AZE2421">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2421"
     },
     AZE2422: {
       name: "Naxçıvan",
-      description: '<a style="color: blue;" href="/city/AZE2422">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2422"
     },
     AZE2423: {
       name: "Şahbuz",
-      description: '<a style="color: blue;" href="/city/AZE2423">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE2423"
     },
     AZE4838: {
       name: "Stepanakert",
-      description: '<a style="color: blue;" href="/city/AZE4838">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE4838"
     },
     AZE5561: {
       name: "Naftalan",
-      description: '<a style="color: blue;" href="/city/AZE5561">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5561"
     },
     AZE5562: {
       name: "Lankaran",
-      description: '<a style="color: blue;" href="/city/AZE5562">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5562"
     },
     AZE5563: {
       name: "Shirvan",
-      description: '<a style="color: blue;" href="/city/AZE5563">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5563"
     },
     AZE5564: {
       name: "Şəki",
-      description: '<a style="color: blue;" href="/city/AZE5564">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5564"
     },
     AZE5565: {
       name: "Şuşa",
-      description: '<a style="color: blue;" href="/city/AZE5565">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5565"
     },
     AZE5566: {
       name: "Yevlakh",
-      description: '<a style="color: blue;" href="/city/AZE5566">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5566"
     },
     AZE5567: {
       name: "Kangarli",
-      description: '<a style="color: blue;" href="/city/AZE5567">Aidiyyatı şəhər üzrə hava proqnozu</a>'
+      url: "/city/AZE5567"
     }
   },
   locations: {
