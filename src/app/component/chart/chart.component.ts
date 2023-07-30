@@ -58,10 +58,12 @@ export class ChartComponent implements OnChanges{
             let changedValue: any = this.getLabelForValue(val).substring(10, 16)
             return this.getLabelForValue(changedValue);
           },
-        }
+        },
+        grid: {
+          display: false
+        },
       },
       y: {
-          beginAtZero: true,
           display: false,
         },
     },

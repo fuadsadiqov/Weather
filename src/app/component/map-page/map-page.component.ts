@@ -19,9 +19,4 @@ export class MapPageComponent implements OnInit {
     script.async = true;
     this.renderer.appendChild(document.body, script);
   }
-
-  onClick(){
-    console.log("Clicked");
-    
-  }
 }
