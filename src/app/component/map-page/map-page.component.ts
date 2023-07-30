@@ -1,7 +1,4 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-declare var simplemaps_countrymap: any;
-declare var simplemaps_countrymap_mapdata: any;
-declare var simplemaps_select: any;
 
 @Component({
   selector: 'app-map',
