@@ -1,7 +1,7 @@
 <div class="page">
     <div class="container header-top-container">
         <div class="header-top">
-            <a routerLink="/cities/list"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
+            <a style="cursor: pointer;" (click)="goBack()"><img src="../../../assets/arrow-left.svg" alt=""> <span class="toBack">Geri Qayıt</span></a> 
             <div class="search-box">
                 <input type="text" (keyup)="filterCountry()" #search [(ngModel)]="filteredInput">
                 <div [class.remove]="!inputClicked && !boxClosed" #searchResult class="search-result">
@@ -24,12 +24,12 @@
                             <p>{{math.round(todayWeather.main.temp - 273.15)}} <sup>°C</sup></p>
                         </div>
                     <span>{{todayWeather.weather[0].description}}</span>
-                    <div class="change-mod">
-                        <a (click)="changeTemprature()">Tempratur</a>
-                        <a (click)="changeFeels()">Hiss olunan</a>
-                        <a (click)="changeHumidity()">Nəm</a>
-                        <a (click)="changeWind()">Külək səviyyəsi</a>
-                    </div>
+                    <select (change)="changeWeatherMod(selectValue.value)" #selectValue class="change-mod">
+                        <option [value]="['temp', '#bcad32']">Tempratur</option>
+                        <option [value]="['feels_like', '#bcad32']">Hiss olunan</option>
+                        <option [value]="['humidity', '#FFFFFF']">Nəm</option>
+                        <option [value]="['pressure', '#96b2e4']">Külək səviyyəsi</option>
+                    </select>
                 </div>
                 <div class="top-right">
                     <p>{{country[1].name}}</p>
@@ -40,18 +40,43 @@
                 <app-chart [wrapper]="chartDataAndLabels"></app-chart>
             </div>
             <div class="five-day-forecast-wrapper">
+                <div class="item first">
+                    10 günlük proqnoz
+                </div>
                 <ng-container *ngFor="let item of eightDayWeather">
                     <div class="item" (click)="changeTime(item.dt_txt)">
                         <img src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="İcon">
-                        <span>{{item.dt_txt.slice(6, 11)}}</span>
-                        <!-- <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span> -->
+                        <!-- <span>{{item.dt_txt.slice(6, 11)}}</span> -->
+                        <span>{{item.dt_txt.slice(6, 11) | date: 'EEEE'}}</span>
                         <span>{{math.round(item.main.temp - 273.15)}} °C</span>
                     </div>
                 </ng-container>
             </div>
         </div>
         <div *ngIf="!todayWeather" class="loading-box">
-            <div class="loader">Loading...</div>
+            <div class="container">
+                <div class="wrapper">
+                   <div class="loader">
+                      <div class="dot"></div>
+                   </div>
+                   <div class="loader">
+                      <div class="dot"></div>
+                   </div>
+                   <div class="loader">
+                      <div class="dot"></div>
+                   </div>
+                   <div class="loader">
+                      <div class="dot"></div>
+                   </div>
+                   <div class="loader">
+                      <div class="dot"></div>
+                   </div>
+                   <div class="loader">
+                      <div class="dot"></div>
+                   </div>
+                </div>
+             </div>
+       
         </div>
         </div> 
     </div>

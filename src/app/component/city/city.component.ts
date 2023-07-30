@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SimplesCountryMap } from '../../map'
 import { RestService } from 'src/app/services/rest.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-city',
@@ -29,11 +30,19 @@ export class CityComponent {
     this.boxClosed = event.composedPath().includes(this.searchResult.nativeElement);
     this.inputClicked = event.composedPath().includes(this.searchInput.nativeElement);
   }
-  constructor(private route: ActivatedRoute, private restService: RestService, private router: Router){
+  constructor(
+    private route: ActivatedRoute, 
+    private restService: RestService, 
+    private router: Router,
+    private location: Location){
     this.getWeather()
     // if(!localStorage.getItem('apiKey')){
     //   this.router.navigateByUrl('')
     // } 
+  }
+  
+  goBack(){
+    this.location.back()
   }
   filterCountry(){
     this.filteredCounties = this.coutriesList.filter(country => country[1].name.toLowerCase().includes(this.filteredInput.toLowerCase()))
@@ -66,25 +75,13 @@ export class CityComponent {
     this.chartDataAndLabels = [lineChartArray.map((item: any) => Math.round(item.main.temp - 273.15)), lineChartArray.map((item: any) => item.dt_txt)] 
   }
  
-  changeWeatherMod(param: string, color: string){
+  changeWeatherMod(param: string){
+    const [mod, color] = param.split(',')
     let startIndex = this.countryWeatherIndex * 8
     let endIndex = startIndex + 8
-    this.chartDataAndLabels = [this.fiveDayHourlyWeaher.map((item: any) => Math.round(item.main[param] - 273.15)).slice(startIndex, endIndex), this.fiveDayHourlyWeaher.map((item: any) => item.dt_txt).slice(startIndex, endIndex), color]
-  }
-  changeTemprature(){
-    let parametr = ['temp', '#bcad32']
-    this.changeWeatherMod(parametr[0], parametr[1])
-  }
-  changeFeels(){
-    let parametr = ['feels_like', '#bcad32']
-    this.changeWeatherMod(parametr[0], parametr[1])
-  }
-  changeHumidity(){
-    let parametr = ['humidity', '#FFFFFF']
-    this.changeWeatherMod(parametr[0], parametr[1])
-  }
-  changeWind(){
-    let parametr = ['pressure', '#96b2e4']
-    this.changeWeatherMod(parametr[0], parametr[1])
+    this.chartDataAndLabels = [this.fiveDayHourlyWeaher.map((item: any) => Math.round(item.main[mod] - 273.15))
+    .slice(startIndex, endIndex), 
+    this.fiveDayHourlyWeaher.map((item: any) => item.dt_txt)
+    .slice(startIndex, endIndex), color]
   }
 }

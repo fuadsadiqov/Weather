@@ -28,7 +28,6 @@ const routes: Routes = [
         component: MapPageComponent,
       },
     ],
-    data: { onSameUrlNavigation: 'reload' }
   },
   {
     path: 'city/:id',

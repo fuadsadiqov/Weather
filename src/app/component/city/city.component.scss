@@ -69,11 +69,12 @@
                 color: #AAA;
             }
             img{
-                width: 5rem;
+                width: 7rem;
             }
             .top-left-img{
                 display: flex; 
                 align-items: center;
+                flex-direction: column;
             }
         }
         .top-right{
@@ -93,15 +94,16 @@
             gap: 0.5rem;
             flex-wrap: wrap;
             justify-content: center;
-            padding-top: 1rem;
-            a{
+            background-color: transparent;
+            border: none;
+            color: #AAA;
+            padding: 0.3rem 0.5rem 0.3rem 0;
+            outline: none;
+            text-align: center;
+            option{
                 font-size: 0.9rem;
                 white-space: nowrap;
-                opacity: 1;
-                cursor: pointer;
-                &:hover{
-                    opacity: 0.6;
-                }
+                background-color: transparent;
             }
         }
     }
@@ -126,14 +128,81 @@
             img{
                 width: 5.5rem;
             }
+            &.first{
+                display: none;
+            }
         }
     }
 }
 .loading-box{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 6.5rem);
+    text-align: center;
+    .container{
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .wrapper{
+        position: absolute;
+        top: -35px;
+        transform: scale(1.5);
+      }
+      .loader{
+        height: 25px;
+       width: 1px;
+       position: absolute;
+       animation: rotate 3.5s linear infinite;
+      }
+      .loader .dot{
+        top: 30px;
+       height: 7px;
+       width: 7px;
+       background: #fff;
+       border-radius: 50%;
+       position: relative;
+      }
+      @keyframes rotate {
+        30%{
+          transform: rotate(220deg);
+        }
+        40%{
+        transform: rotate(450deg);
+          opacity: 1;
+       }
+       75%{
+        transform: rotate(720deg);
+        opacity: 1;
+       }
+       76%{
+        opacity: 0;
+       }
+       100%{
+        opacity: 0;
+        transform: rotate(0deg);
+       }
+      }
+      .loader:nth-child(1){
+        animation-delay: 0.15s;
+      }
+      .loader:nth-child(2){
+        animation-delay: 0.3s;
+      }
+      .loader:nth-child(3){
+        animation-delay: 0.45s;
+      }
+      .loader:nth-child(4){
+        animation-delay: 0.6s;
+      }
+      .loader:nth-child(5){
+        animation-delay: 0.75s;
+      }
+      .loader:nth-child(6){
+        animation-delay: 0.9s;
+      }
 }
 @media (max-width: 768px) {
     .toBack{
@@ -144,30 +213,42 @@
             flex-direction: column-reverse;
             .top-left{
                 img{
-                    width: 70%;
+                    width: 100%;
                 }
             }
             .top-right{
                 align-items: center;
+                span{
+                    display: none;
+                }
             }
         }
         .five-day-forecast-wrapper{
             flex-direction: column;
             align-items: flex-start;
-            border: 1px solid #AAA;
             border-radius: 1rem;
             padding: 0;
-            margin-top: 1rem;
+            margin-top: 2rem;
+            background-color: rgba($color: #111827, $alpha: 0.4);
             .item{
                 width: 100%;
                 justify-content: space-between;
                 flex-direction: row;
-                padding: 0 1rem 0 0;
+                padding: 0.5rem 1rem 0.5rem 0.5rem;
                 border-radius: 0;
                 border-bottom: 1px solid #AAA;
+                img{ 
+                    width: 3rem;
+                }
                 &:last-child{
                     border-bottom: 0;
                 }    
+                &.first{
+                    display: block;
+                    font-size: 0.8rem;
+                    color: #AAA;
+                    padding: 0.5rem 1rem;
+                }
             }
         }
     }   
