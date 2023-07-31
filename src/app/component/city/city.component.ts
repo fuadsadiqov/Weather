@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SimplesCountryMap } from '../../map'
 import { RestService } from 'src/app/services/rest.service';
 import { Location } from '@angular/common';
+import { CountryFilterService } from 'src/app/services/country-filter.service';
+import { ChartDataService } from 'src/app/services/chart-data.service';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-city',
@@ -32,7 +35,10 @@ export class CityComponent {
   }
   constructor(
     private route: ActivatedRoute, 
-    private restService: RestService, 
+    private restService: RestService,
+    private countryFilterService: CountryFilterService, 
+    private chartDataService: ChartDataService,
+    private weatherService: WeatherService,
     private router: Router,
     private location: Location){
     this.getWeather()
@@ -45,21 +51,19 @@ export class CityComponent {
     this.location.back()
   }
   filterCountry(){
-    this.filteredCounties = this.coutriesList.filter(country => country[1].name.toLowerCase().includes(this.filteredInput.toLowerCase()))
+    this.filteredCounties = this.countryFilterService.filter(this.filteredInput, this.coutriesList)
   }
   getWeather(){
     this.route.params.subscribe(para => {
       const id = para['id']
-      this.country = this.coutriesList.find(item => item[0] == id)
-      this.filteredInput = this.country[1].name
+      this.country = this.countryFilterService.getCountryById(id)
+      this.filteredInput = this.countryFilterService.getCountryName(id) || ''
       this.restService.getWeather(this.country[1].name)
       .subscribe((res: any) => {
         this.fiveDayHourlyWeaher = res.list
-        let todayEightHoursDatas =  res.list.map((item: any) => Math.round(item.main.temp - 273.15)).slice(0, 8)
-        let todayEightHoursLabels =  res.list.map((item: any) => item.dt_txt).slice(0, 8)
-        this.chartDataAndLabels = [todayEightHoursDatas, todayEightHoursLabels]
         this.todayWeather = res.list[0]
-        this.eightDayWeather = res.list.filter((item: any) => item.dt_txt.substr(-8) == '12:00:00')
+        this.chartDataAndLabels = this.countryFilterService.currentEightHoursData(res.list)
+        this.eightDayWeather = this.weatherService.filterEightDayWeather(res.list)
         })
       })
   }
@@ -68,20 +72,15 @@ export class CityComponent {
     this.getWeather()
   }
   changeTime(time: string){
-    this.todayWeather = this.eightDayWeather.find((item: any) => item.dt_txt == time)
-    this.countryWeatherIndex = this.eightDayWeather.findIndex((item: any) => item.dt_txt == time)
-    
-    let lineChartArray = this.fiveDayHourlyWeaher.filter((item: any) => item.dt_txt.substr(8, 2) == time.substring(8, 10))    
-    this.chartDataAndLabels = [lineChartArray.map((item: any) => Math.round(item.main.temp - 273.15)), lineChartArray.map((item: any) => item.dt_txt)] 
+    this.todayWeather = this.weatherService.getWeatherByTime(time, this.eightDayWeather)
+    this.countryWeatherIndex = this.weatherService.getWeatherIndexByTime(time, this.eightDayWeather)
+    this.chartDataAndLabels = this.chartDataService.getChartDataForTime(this.fiveDayHourlyWeaher, time)
   }
  
   changeWeatherMod(param: string){
     const [mod, color] = param.split(',')
     let startIndex = this.countryWeatherIndex * 8
-    let endIndex = startIndex + 8
-    this.chartDataAndLabels = [this.fiveDayHourlyWeaher.map((item: any) => Math.round(item.main[mod] - 273.15))
-    .slice(startIndex, endIndex), 
-    this.fiveDayHourlyWeaher.map((item: any) => item.dt_txt)
-    .slice(startIndex, endIndex), color]
+    let endIndex = startIndex + 8 
+    this.chartDataAndLabels = this.chartDataService.getChartDataByMod(this.fiveDayHourlyWeaher, mod, startIndex, endIndex, color)
   }
 }
