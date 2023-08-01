@@ -33,7 +33,7 @@ import { MapPageComponent } from './component/map-page/map-page.component';
     ReactiveFormsModule,
     NgChartsModule,
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'en-US' }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

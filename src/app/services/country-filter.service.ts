@@ -26,4 +26,5 @@ export class CountryFilterService {
         countriesList.map((item: any) => item.dt_txt).slice(0, 8)
     ]
   }
+
 }

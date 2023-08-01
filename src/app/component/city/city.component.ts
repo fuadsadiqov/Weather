@@ -45,15 +45,14 @@ export class CityComponent {
     // if(!localStorage.getItem('apiKey')){
     //   this.router.navigateByUrl('')
     // } 
-  }
-  
-  goBack(){
+   }
+  public goBack(){
     this.location.back()
   }
-  filterCountry(){
+  public filterCountry(){
     this.filteredCounties = this.countryFilterService.filter(this.filteredInput, this.coutriesList)
   }
-  getWeather(){
+  private getWeather(){
     this.route.params.subscribe(para => {
       const id = para['id']
       this.country = this.countryFilterService.getCountryById(id)
@@ -67,17 +66,17 @@ export class CityComponent {
         })
       })
   }
-  navigateToCity(cityId: string){
+  private navigateToCity(cityId: string){
     this.router.navigateByUrl('city/' + cityId)
     this.getWeather()
   }
-  changeTime(time: string){
+  public changeTime(time: string){
     this.todayWeather = this.weatherService.getWeatherByTime(time, this.eightDayWeather)
     this.countryWeatherIndex = this.weatherService.getWeatherIndexByTime(time, this.eightDayWeather)
     this.chartDataAndLabels = this.chartDataService.getChartDataForTime(this.fiveDayHourlyWeaher, time)
   }
  
-  changeWeatherMod(param: string){
+  public changeWeatherMod(param: string){
     const [mod, color] = param.split(',')
     let startIndex = this.countryWeatherIndex * 8
     let endIndex = startIndex + 8 
