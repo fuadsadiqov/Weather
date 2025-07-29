@@ -1,27 +1,80 @@
-# LoginApp
+# 🌤️ Weather Forecast App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+A responsive weather forecast app built with **Angular**, showing both short-term (24-hour) and long-term (5-day) weather data. The app includes a region selection feature, visual charts, and a clean UI layout for quick insights.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Structures
+```bash
+src/
+├── app/
+│   ├── pages/
+│   │   ├── home/          
+│   │   └── details/      
+│   ├── components/       
+│   ├── services/         
+│   └── models/           
+├── assets/            
+└── styles/
+```
+---      
 
-## Code scaffolding
+## 📌 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🌍 **Region Selector** – select regions from either a list or a map
+- 🕑 **Current Day Forecast** – shows 24-hour forecast for the selected region
+- 📅 **5-Day Forecast** – extended view for upcoming weather conditions
+- 🌡️ **Detailed Metrics** – choose to view:
+  - Humidity
+  - Feels-like Temperature
+  - Wind Speed
+  - Actual Temperature
+- 📊 **Chart.js Integration** – all data is visualized using bar charts for better clarity
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🧱 Pages & Flow
 
-## Running unit tests
+- **Home Page** (Split View – Slice 2 layout):
+  - Left side: Region list
+  - Right side: Region map
+  - Click/select on either → navigates to region details
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Region Detail Page:**
+  - Displays:
+    - 📅 5-day weather forecast
+    - 🕐 24-hour forecast for the current day
+    - 📊 Weather metrics in **bar charts** using Chart.js
+  - Metric type (e.g., humidity, temperature) is selectable
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠 Tech Stack
 
-## Further help
+- [Angular](https://angular.io/)
+- [Chart.js](https://www.chartjs.org/)
+- [SCSS](https://sass-lang.com/) for custom styles
+- [Angular Router](https://angular.io/guide/router) for navigation
+- Responsive layout (Mobile & Desktop)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+Visit: http://localhost:4200
+
+📄 License
+MIT – feel free to use or modify
+
+Made with ☁️ and ☕ by @fuadsadiqov
+
+
+## 🚀 Getting Started
+
+Clone the repo:
+
+```bash
+git clone https://github.com/your-username/weather-forecast-app.git
+cd weather-forecast-app
+
+npm install
+
+ng serve
