@@ -72,7 +72,7 @@ Made with ☁️ and ☕ by @fuadsadiqov
 Clone the repo:
 
 ```bash
-git clone https://github.com/your-username/weather-forecast-app.git
+git clone https://github.com/fuadsadiqov/Weather.git
 cd weather-forecast-app
 
 npm install
